@@ -1,0 +1,107 @@
+<html>
+    {% load static %}
+    <head>
+        <title>Cunsultation Report</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <script type="text/javascript" src="/static/ckeditor/ckeditor-init.js"></script>
+        <script type="text/javascript" src="/static/ckeditor/ckeditor/ckeditor.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-6 pl-5">
+                    <div class="row p-3">
+                        <div class="col-5">
+                            <label>{{form.clinic_name.label}}</label>
+                        </div>
+                        <div class="col-7">
+                            {{form.clinic_name}}
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col-5">
+                            <label>{{form.physician_name.label}}</label>
+                        </div>
+                        <div class="col-7">
+                            {{form.physician_name}}
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col-5">
+                            <label>{{form.patient_firstname.label}}</label>
+                        </div>
+                        <div class="col-7">
+                            {{form.patient_firstname}}
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col-5">
+                            <label>{{form.patient_dob.label}}</label>
+                        </div>
+                        <div class="col-7">
+                            {{form.patient_dob}}
+                        </div>
+                    </div>
+                    
+                   
+                </div>
+                <div class="col-6 pr-5">
+                    <div class="row p-3">
+                        <div class="col-5">
+                            <label>{{form.clinic_logo.label}}</label>
+                        </div>
+                        <div class="col-7">
+                            {{form.clinic_logo}}
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col-5">
+                            <label>{{form.physician_contact.label}}</label>
+                        </div>
+                        <div class="col-7">
+                            {{form.physician_contact}}
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col-5">
+                            <label>{{form.patient_lastname.label}}</label>
+                        </div>
+                        <div class="col-7">
+                            {{form.patient_lastname}}
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col-5">
+                            <label>{{form.patient_contact.label}}</label>
+                        </div>
+                        <div class="col-7">
+                            {{form.patient_contact}}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <label>{{form.cheif_complaint.label}}</label>
+                <textarea id="txtMessageFields"></textarea>
+            </div>
+        </div>
+    </body>
+
+
+</html>
+
+<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/ckeditor/adapters/jquery.js"></script>
+<script type="text/javascript">
+     $(document).ready(function () {
+         $('#txtMessageFields').ckeditor();
+     })
+</script>
+
+
+<script>
+	var editor1 = new RichTextEditor("#div_editor1");
+	//editor1.setHTMLCode("Use inline HTML or setHTMLCode to init the default content.");
+</script>
