@@ -1,0 +1,93 @@
+<head>
+    {% load static %}
+<style>
+ footer {
+  font-size: 9px;
+  color: #f00;
+  text-align: center;
+}
+
+@page {
+  size: A4;
+  margin: 11mm 17mm 17mm 17mm;
+}
+
+@media print {
+  footer {
+    position: fixed;
+    bottom: 0;
+  }
+
+  .content-block, p {
+    page-break-inside: avoid;
+  }
+
+
+}
+</style>
+</head>
+
+<body>
+    <header>
+        <img src="{{clinic_logo}}" width="50px" height="50px" style="float: right;">    
+    </header>
+    <!-- Content for Static Frame 'header_frame' -->
+    
+    <!-- Content for Static Frame 'footer_frame' -->
+    <div id="footer_content">(c) - page <pdf:pagenumber>
+        of <pdf:pagecount>
+    </div>
+
+    <!-- HTML Content -->
+    
+    <div class="content-block">
+        <table style="border: 1px solid black;padding:3px">
+            <tr>
+     
+                <th>Clinic name</th>
+                <th>Physician name</th>
+                <th>Physician contact</th>
+                <th>Patient firstname</th>
+            </tr>
+            
+            
+            
+            
+            <tr>
+                
+                <td>{{clinic_name}}</td>
+                <td>{{physician_name}}</td>
+                <td>{{physician_contact}}</td>
+                <td>${{patient_firstname}}</td>
+            </tr>
+            <tr>
+     
+                <th>Patient lastname</th>
+                <th>Patient dob</th>
+                <th>Patient contact</th>
+            </tr>
+            <tr>
+                
+                <td>{{patient_lastname}}</td>
+                <td>{{patient_dob}}</td>
+                <td>{{patient_contact}}</td>
+            </tr>
+        </table>
+    <hr>
+    <div>
+        <h3>Cheif complaint</h3>
+        {{cheif_complaint|safe}}    
+    </div>
+    <hr>
+    <div>
+        <h3>Consultation note</h3>
+        {{consultation_note|safe}}    
+    </div>
+    </div>
+    <footer>
+        “This report is generated on {{time}} from {{ipaddress}}
+    </footer>
+    
+    
+</body>
+</html>

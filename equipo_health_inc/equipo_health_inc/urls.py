@@ -24,6 +24,8 @@ urlpatterns = [
     path('',views.index,name="index"),
     path('download',views.download,name="download"),
     path('online_cusultationReport',views.online_cusultationReport,name="online_cusultationReport"),
+ 
+    
     
     
 ]

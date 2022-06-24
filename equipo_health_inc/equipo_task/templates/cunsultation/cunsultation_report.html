@@ -7,101 +7,108 @@
         <script type="text/javascript" src="/static/ckeditor/ckeditor-init.js"></script>
         <script type="text/javascript" src="/static/ckeditor/ckeditor/ckeditor.js"></script>
     </head>
-    <body>
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col-6 pl-5">
-                    <div class="row p-3">
-                        <div class="col-5">
-                            <label>{{form.clinic_name.label}}</label>
+    <body class="p-5">
+        <form method="POST" action="{% url 'online_cusultationReport' %}">
+            {% csrf_token %}
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col-6 pl-5">
+                        <div class="row p-3">
+                            <div class="col-5">
+                                <label>{{form.clinic_name.label}}</label>
+                            </div>
+                            <div class="col-7">
+                                {{form.clinic_name}}
+                            </div>
                         </div>
-                        <div class="col-7">
-                            {{form.clinic_name}}
+                        <div class="row p-3">
+                            <div class="col-5">
+                                <label>{{form.physician_name.label}}</label>
+                            </div>
+                            <div class="col-7">
+                                {{form.physician_name}}
+                            </div>
                         </div>
+                        <div class="row p-3">
+                            <div class="col-5">
+                                <label>{{form.patient_firstname.label}}</label>
+                            </div>
+                            <div class="col-7">
+                                {{form.patient_firstname}}
+                            </div>
+                        </div>
+                        <div class="row p-3">
+                            <div class="col-5">
+                                <label>{{form.patient_dob.label}}</label>
+                            </div>
+                            <div class="col-7">
+                                {{form.patient_dob}}
+                            </div>
+                        </div>
+                        
+                       
                     </div>
-                    <div class="row p-3">
-                        <div class="col-5">
-                            <label>{{form.physician_name.label}}</label>
+                    <div class="col-6 pr-5">
+                        <div class="row p-3">
+                            <div class="col-5">
+                                <label>{{form.clinic_logo.label}}</label>
+                            </div>
+                            <div class="col-7">
+                                {{form.clinic_logo}}
+                            </div>
                         </div>
-                        <div class="col-7">
-                            {{form.physician_name}}
+                        <div class="row p-3">
+                            <div class="col-5">
+                                <label>{{form.physician_contact.label}}</label>
+                            </div>
+                            <div class="col-7">
+                                {{form.physician_contact}}
+                            </div>
                         </div>
+                        <div class="row p-3">
+                            <div class="col-5">
+                                <label>{{form.patient_lastname.label}}</label>
+                            </div>
+                            <div class="col-7">
+                                {{form.patient_lastname}}
+                            </div>
+                        </div>
+                        <div class="row p-3">
+                            <div class="col-5">
+                                <label>{{form.patient_contact.label}}</label>
+                            </div>
+                            <div class="col-7">
+                                {{form.patient_contact}}
+                            </div>
+                        </div>
+    
                     </div>
-                    <div class="row p-3">
-                        <div class="col-5">
-                            <label>{{form.patient_firstname.label}}</label>
-                        </div>
-                        <div class="col-7">
-                            {{form.patient_firstname}}
-                        </div>
-                    </div>
-                    <div class="row p-3">
-                        <div class="col-5">
-                            <label>{{form.patient_dob.label}}</label>
-                        </div>
-                        <div class="col-7">
-                            {{form.patient_dob}}
-                        </div>
-                    </div>
-                    
-                   
                 </div>
-                <div class="col-6 pr-5">
-                    <div class="row p-3">
-                        <div class="col-5">
-                            <label>{{form.clinic_logo.label}}</label>
-                        </div>
-                        <div class="col-7">
-                            {{form.clinic_logo}}
-                        </div>
-                    </div>
-                    <div class="row p-3">
-                        <div class="col-5">
-                            <label>{{form.physician_contact.label}}</label>
-                        </div>
-                        <div class="col-7">
-                            {{form.physician_contact}}
-                        </div>
-                    </div>
-                    <div class="row p-3">
-                        <div class="col-5">
-                            <label>{{form.patient_lastname.label}}</label>
-                        </div>
-                        <div class="col-7">
-                            {{form.patient_lastname}}
-                        </div>
-                    </div>
-                    <div class="row p-3">
-                        <div class="col-5">
-                            <label>{{form.patient_contact.label}}</label>
-                        </div>
-                        <div class="col-7">
-                            {{form.patient_contact}}
-                        </div>
-                    </div>
-
+                
+            </div>
+            <div class="container" style="margin-bottom: 50px;">
+                <div class="row m-5">
+                    <label>{{form.cheif_complaint.label}}</label>
+                    {{form.cheif_complaint}}
+                </div>
+            </div>
+            <div class="container" style="margin-bottom: 50px;">
+                <div class="row m-5">
+                    <label>{{form.consultation_note.label}}</label>
+                    {{form.consultation_note}}
                 </div>
             </div>
             <div class="row">
-                <label>{{form.cheif_complaint.label}}</label>
-                <textarea id="txtMessageFields"></textarea>
+                <button class="btn btn-primary" type="submit">submit</button>
             </div>
-        </div>
+        </form>
+        
+        
+            
+        
     </body>
 
 
 </html>
 
-<script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
-<script type="text/javascript" src="/ckeditor/adapters/jquery.js"></script>
-<script type="text/javascript">
-     $(document).ready(function () {
-         $('#txtMessageFields').ckeditor();
-     })
-</script>
 
-
-<script>
-	var editor1 = new RichTextEditor("#div_editor1");
-	//editor1.setHTMLCode("Use inline HTML or setHTMLCode to init the default content.");
-</script>

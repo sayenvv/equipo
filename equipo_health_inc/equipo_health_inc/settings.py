@@ -32,8 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # 3rd party
-    'ckeditor',
+    
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'equipo_task',
+    # 3rd party
+    'ckeditor',
 
     
 ]
@@ -123,8 +124,8 @@ USE_TZ = True
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'full',
-        'height': 300,
-        'width': 300,
+        'height': '100%',
+        'width': '100%',
     },
 }
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
