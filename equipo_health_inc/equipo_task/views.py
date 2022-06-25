@@ -44,7 +44,6 @@ def download(request):
             list2.append(i)
     list_of_lists = [list2[i:i + 3] for i in range(0, len(list2), 3)]
     for index in range(len(list_of_lists)):
-        print(list_of_lists[index])
         url2 = 'https://www.hcpcsdata.com/Codes/'+str(list_of_lists[index][0].replace("'",'').split(' ')[0])
     
         response2 = requests.get(url2)
@@ -85,8 +84,7 @@ def download(request):
                   
                 except Exception as e:
                     pass
-            return responsecsv
-    return render(request,'index/index.html')
+    return responsecsv
 
 def render_to_pdf(template_src, context_dict={}):
     print(context_dict)
@@ -99,18 +97,7 @@ def render_to_pdf(template_src, context_dict={}):
         return HttpResponse(result.getvalue(), content_type='application/pdf')
     return None
 
-# def pdf(**kwargs):
-#     data = {}
-#     for key, value in kwargs.items():
-#         data[key] = value
-#     pdf = render_to_pdf('template_pdf.html', data)
-#     response = HttpResponse(pdf, content_type='application/pdf')
     
-#     filename = "hsasah.pdf"
-#     content = "attachment; filename=dsadsad.pdf" 
-#     response['Content-Disposition'] = content
-#     print(response)
-#     return response      
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:
